@@ -23,3 +23,12 @@ class AuthenticationTest(APITestCase):
         self.assertEqual(response.data['username'], user.username)
         self.assertEqual(response.data['first_name'], user.first_name)
         self.assertEqual(response.data['last_name'], user.last_name)
+    
+    def test_user_login(self):
+        response = self.client.post(reverse('login'), data={
+            'username': "user@example.com",
+            'password': PASSWORD
+        })
+
+        self.assertEqual(status.HTTP_200_OK, response.status_code)
+

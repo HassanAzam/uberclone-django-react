@@ -22,5 +22,6 @@ from trips.views import SignUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/signup/', SignUpView.as_view(), name='signup')
+    path('api/signup/', SignUpView.as_view(), name='signup'),
+    path("api/login/", LoginView.as_view(), name='login')
 ]
